@@ -9,7 +9,25 @@
 extension Hero {
     
     func oldestItemFromPlanet(inventory: [UDItem], planet: String) -> UDItem? {
-        return nil
+        
+        var oldestItem: UDItem? = nil
+        var oldestAge = -1
+        
+        for item in inventory {
+            
+            if let planetOfOrigin = item.historicalData["PlanetOfOrigin"] as? String
+                where planetOfOrigin == planet {
+                
+                    if let age = item.historicalData["CarbonAge"] as? Int
+                        where age > oldestAge {
+                            oldestItem = item
+                            oldestAge = age
+                    }
+                
+            }
+            
+        }
+        return oldestItem
     }
     
 }
