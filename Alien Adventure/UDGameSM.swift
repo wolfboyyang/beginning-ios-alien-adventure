@@ -92,7 +92,7 @@ class UDGameSM {
                     nextState = .NotStarted
                     externalState = .Win
                 } else {
-                    if let currentAlien = currentAlien where Settings.Common.ShowBadges {
+                    if let currentAlien = currentAlien /*where Settings.Common.ShowBadges*/ {
                         addBadge(hero, alien: currentAlien)
                     }
                     nextState = .Moving

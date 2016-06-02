@@ -32,8 +32,10 @@ class BadgeManager: SKNode {
     }
     
     func addBadge(badge: Badge) {
-        badge.position = CGPoint(x: CGRectGetMinX(badgeDisplay.frame) + 32 + CGFloat(badges.count * 70), y: 0)
-        badgeDisplay.addChild(badge)
+        if Settings.Common.ShowBadges {
+            badge.position = CGPoint(x: CGRectGetMinX(badgeDisplay.frame) + 32 + CGFloat(badges.count * 70), y: 0)
+            badgeDisplay.addChild(badge)
+        }
         badges.append(badge)
     }
 }
